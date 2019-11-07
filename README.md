@@ -1,24 +1,13 @@
-# README
+# TestGuru app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+App's classes:
+ 1. Test
+ 2. Question
+ 3. Answer
+ 4. RegisterForm
+ 5. AuthForm
+ 6. User
+ 7. Admin
+ 8. NewTestForm
+ 9. TestResult
+ 10. Profile
