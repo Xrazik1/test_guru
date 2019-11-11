@@ -13,6 +13,9 @@ Category.create(title: 'Backend')
 Test.create(title: 'Ruby', level: 1, category_id: 2)
 Test.create(title: 'Python', level: 0, category_id: 2)
 Test.create(title: 'HTML', level: 0, category_id: 1)
+Test.create(title: 'CSS', level: 2, category_id: 1)
+Test.create(title: 'Go', level: 0, category_id: 2)
+Test.create(title: 'C#', level: 2, category_id: 2)
 
 User.create(name: 'Иван', surname: 'Иванов', email: 'ivan@mail.ru',
-            password: '12345', privilege: 'user', test_ids: '2,3')
+            password: '12345', privilege: 'user')
