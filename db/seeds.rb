@@ -7,15 +7,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Category.create(title: 'Frontend')
-Category.create(title: 'Backend')
+frontend_cat = Category.create(title: 'Frontend')
+backend_cat = Category.create(title: 'Backend')
 
-Test.create(title: 'Ruby', level: 1, category_id: 2)
-Test.create(title: 'Python', level: 0, category_id: 2)
-Test.create(title: 'HTML', level: 0, category_id: 1)
-Test.create(title: 'CSS', level: 2, category_id: 1)
-Test.create(title: 'Go', level: 0, category_id: 2)
-Test.create(title: 'C#', level: 2, category_id: 2)
+Test.create(title: 'Ruby', level: 1, category_id: backend_cat.id)
+Test.create(title: 'Python', level: 0, category_id: backend_cat.id)
+Test.create(title: 'HTML', level: 0, category_id: frontend_cat.id)
+Test.create(title: 'CSS', level: 2, category_id: frontend_cat.id)
+Test.create(title: 'Go', level: 0, category_id: backend_cat.id)
+Test.create(title: 'C#', level: 2, category_id: backend_cat.id)
 
 User.create(name: 'Иван', surname: 'Иванов', email: 'ivan@mail.ru',
             password: '12345', privilege: 'user')
