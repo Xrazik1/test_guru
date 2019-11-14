@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-version = '0.2.0'
+version = '0.4.0'
 
 TestGuru::VERSION = version
