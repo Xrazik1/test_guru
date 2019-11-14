@@ -1,5 +1,11 @@
 # frozen_string_literal: true
 
-version = '0.4.0'
+module TestGuru
+  module VERSION
+    MAJOR = 0
+    MINOR = 4
+    PATCH = 0
 
-TestGuru::VERSION = version
+    FULL = [MAJOR, MINOR, PATCH].compact.join('.')
+  end
+end
