@@ -6,7 +6,6 @@ class CreateTests < ActiveRecord::Migration[6.0]
       t.string :title, null: false
       t.integer :level, null: false, default: 0
 
-      t.references :author, index: true, foreign_key: { to_table: 'users' }
       t.references :category, foreign_key: true
 
       t.timestamps
