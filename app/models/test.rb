@@ -18,4 +18,8 @@ class Test < ApplicationRecord
       .pluck(:title)
   }
 
+  validates :title, presence: true, uniqueness: true
+  validates :level, uniqueness: true
+  validates_numericality_of :level, greater_than_or_equal_to: 0
+
 end
