@@ -23,4 +23,12 @@ class Test < ApplicationRecord
   validate :validate_match_level_and_title
   validates_numericality_of :level, greater_than_or_equal_to: 0
 
+  private
+
+  def validate_match_level_and_title
+    if self.class.where(title: title, level: level).size >= 1
+      errors.add :message, "'Невозможно создать тест с одинаковым названием и уровенем сложности'"
+    end
+  end
+
 end
