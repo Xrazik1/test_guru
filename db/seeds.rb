@@ -22,6 +22,6 @@ test6 = Test.create(title: 'C#', level: 2, category_id: backend_cat.id, author_i
 
 question1 = Question.create(body: 'Аббревиатура HTML', test_id: test3.id)
 
-answer1 = Answer.create(body: 'HyperText Markup Language', question_id: question1.id, correct: "true")
-answer2 = Answer.create(body: 'HyperTransfer Markup Language', question_id: question1.id, correct: "false")
+answer1 = Answer.create(body: 'HyperText Markup Language', question_id: question1.id, correct: 'true')
+answer2 = Answer.create(body: 'HyperTransfer Markup Language', question_id: question1.id, correct: 'false')
 
