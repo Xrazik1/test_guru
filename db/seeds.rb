@@ -13,10 +13,15 @@ backend_cat = Category.create(title: 'Backend')
 author = User.create(name: 'Иван', surname: 'Иванов', email: 'ivan@mail.ru',
             password: '12345', privilege: 'author')
 
-Test.create(title: 'Ruby', level: 1, category_id: backend_cat.id, author_id: author.id)
-Test.create(title: 'Python', level: 0, category_id: backend_cat.id, author_id: author.id)
-Test.create(title: 'HTML', level: 0, category_id: frontend_cat.id, author_id: author.id)
-Test.create(title: 'CSS', level: 2, category_id: frontend_cat.id, author_id: author.id)
-Test.create(title: 'Go', level: 0, category_id: backend_cat.id, author_id: author.id)
-Test.create(title: 'C#', level: 2, category_id: backend_cat.id, author_id: author.id)
+test1 = Test.create(title: 'Ruby', level: 1, category_id: backend_cat.id, author_id: author.id)
+test2 = Test.create(title: 'Python', level: 0, category_id: backend_cat.id, author_id: author.id)
+test3 = Test.create(title: 'HTML', level: 0, category_id: frontend_cat.id, author_id: author.id)
+test4 = Test.create(title: 'CSS', level: 2, category_id: frontend_cat.id, author_id: author.id)
+test5 = Test.create(title: 'Go', level: 0, category_id: backend_cat.id, author_id: author.id)
+test6 = Test.create(title: 'C#', level: 2, category_id: backend_cat.id, author_id: author.id)
+
+question1 = Question.create(body: 'Аббревиатура HTML', test_id: test3.id)
+
+answer1 = Answer.create(body: 'HyperText Markup Language', question_id: question1.id, correct: 'true')
+answer2 = Answer.create(body: 'HyperTransfer Markup Language', question_id: question1.id, correct: 'false')
 

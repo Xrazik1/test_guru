@@ -7,10 +7,28 @@ class Test < ApplicationRecord
   belongs_to :author, class_name: 'User'
   belongs_to :category
 
+  scope :easy, -> { where(level: 0..1) }
+  scope :medium, -> { where(level: 2..4) }
+  scope :hard, -> { where(level: 5..Float::INFINITY) }
+
+  scope :by_cat_name, lambda { |cat_name|
+    joins('JOIN categories ON categories.id = tests.category_id').where('categories.title = ?', cat_name)
+  }
+
   def self.get_names_by_cat(cat_name)
-    joins('JOIN categories ON categories.id = tests.category_id')
-      .where('categories.title = ?', cat_name)
-      .order(id: :desc)
-      .pluck(:title)
+    by_cat_name(cat_name).order(id: :desc).pluck(:title)
   end
+
+  validates :title, presence: true
+  validate :validate_match_level_and_title
+  validates_numericality_of :level, greater_than_or_equal_to: 0
+
+  private
+
+  def validate_match_level_and_title
+    if self.class.where(title: title, level: level).size >= 1
+      errors.add :message, "'Невозможно создать тест с одинаковым названием и уровенем сложности'"
+    end
+  end
+
 end
