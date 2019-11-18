@@ -1,23 +1,21 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
-  before_action :find_test, only: %i[index show]
+  before_action :find_test, only: %i[index show create]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    @test
-  end
-
-  def show
-    @question = @test.questions.find(params[:id])
+    @questions = @test.questions
   end
 
   def new; end
 
   def create
-    question = Question.create!(question_params)
-    render plain: question.inspect
+    question = @test.questions.new(question_params)
+    result = question.save ? question : question.errors.messages
+
+    render plain: result.inspect
   end
 
   def destroy
