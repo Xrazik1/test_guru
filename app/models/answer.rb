@@ -13,8 +13,6 @@ class Answer < ApplicationRecord
   private
 
   def validate_answers_count
-    if question.answers.count >= ANSWERS_MAX_COUNT
-      errors.add :message, "'Вопрос достиг максимального числа ответов'"
-    end
+    errors.add :message, "'Вопрос достиг максимального числа ответов'" if question.answers.count >= ANSWERS_MAX_COUNT
   end
 end

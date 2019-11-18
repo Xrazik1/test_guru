@@ -22,5 +22,4 @@ class Test < ApplicationRecord
   validates :title, presence: true
   validates :title, uniqueness: { scope: :level }
   validates_numericality_of :level, greater_than_or_equal_to: 0
-
 end
