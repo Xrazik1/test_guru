@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
   def new; end
 
   def create
-    question = Question.create!(question_params.merge(test_id: params[:test_id]))
+    question = Question.create!(question_params)
     render plain: question.inspect
   end
 
@@ -32,7 +32,7 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:body)
+    params.require(:question).permit(:body).merge(test_id: params[:test_id])
   end
 
   def rescue_with_question_not_found
