@@ -30,7 +30,7 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:body).merge(test_id: params[:test_id])
+    params.require(:question).permit(:body)
   end
 
   def rescue_with_question_not_found
