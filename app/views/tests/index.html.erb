@@ -1,0 +1,6 @@
+<section class="questions">
+  <h1>Все тесты</h1>
+  <% @tests.each do |test| %>
+    Тест #<%= test.id %> Название теста: <%= test.title %>, Уровень: <%= test.level %> <br>
+  <% end %>
+</section>
