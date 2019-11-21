@@ -38,7 +38,8 @@ class QuestionsController < ApplicationController
   private
 
   def find_test
-    @test = Test.find(params[:test_id])
+    test_id = params[:test_id] || Question.find(params[:id]).test.id
+    @test = Test.find(test_id)
   end
 
   def question_params
