@@ -30,8 +30,9 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    Question.destroy(params[:id])
-    render plain: "Вопрос id:#{params[:id]} успешно удалён"
+    question = Question.find(params[:id])
+    question.destroy
+    redirect_to(question.test)
   end
 
   private
