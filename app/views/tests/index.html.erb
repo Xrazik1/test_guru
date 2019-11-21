@@ -1,6 +1,11 @@
 <section class="questions">
   <h1>Все тесты</h1>
   <% @tests.each do |test| %>
-    Тест #<%= test.id %> Название теста: <%= test.title %>, Уровень: <%= test.level %> <br>
+    Тест #<%= test.id %>
+    Название теста: <%= test.title %>,
+    Уровень: <%= test.level %>,
+    Количество вопросов: <%= test.questions.size %>
+    <%= link_to 'Открыть', test_path(test), method: :get %>
+    <br>
   <% end %>
 </section>
