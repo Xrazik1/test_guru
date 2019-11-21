@@ -9,13 +9,24 @@ class QuestionsController < ApplicationController
     @questions = @test.questions
   end
 
-  def new; end
+  def edit
+    @question = Question.find(params[:id])
+  end
+
+  def new
+    @question = @test.questions.new
+  end
 
   def create
     question = @test.questions.new(question_params)
     result = question.save ? question : question.errors.messages
 
     render plain: result.inspect
+  end
+
+  def update
+    @question = Question.find(params[:id])
+    @question.update(question_params) ? redirect_to(@test) : render(:edit)
   end
 
   def destroy
