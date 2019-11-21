@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
-  before_action :find_test, only: %i[index new create show edit update]
+  before_action :find_test, only: %i[index new create show]
+  before_action :find_question, only: %i[edit update destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
@@ -9,9 +10,7 @@ class QuestionsController < ApplicationController
     redirect_to @test
   end
 
-  def edit
-    @question = Question.find(params[:id])
-  end
+  def edit; end
 
   def new
     @question = @test.questions.new
@@ -23,21 +22,22 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @question = Question.find(params[:id])
-    @question.update(question_params) ? redirect_to(@test) : render(:edit)
+    @question.update(question_params) ? redirect_to(@question.test) : render(:edit)
   end
 
   def destroy
-    question = Question.find(params[:id])
-    question.destroy
-    redirect_to(question.test)
+    @question.destroy
+    redirect_to(@question.test)
   end
 
   private
 
   def find_test
-    test_id = params[:test_id] || Question.find(params[:id]).test.id
-    @test = Test.find(test_id)
+    @test = Test.find(params[:test_id])
+  end
+
+  def find_question
+    @question = Question.find(params[:id])
   end
 
   def question_params
