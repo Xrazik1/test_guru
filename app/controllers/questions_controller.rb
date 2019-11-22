@@ -1,32 +1,43 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
-  before_action :find_test, only: %i[index show create]
+  before_action :find_test, only: %i[index new create show]
+  before_action :find_question, only: %i[edit update destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    @questions = @test.questions
+    redirect_to @test
   end
 
-  def new; end
+  def edit; end
+
+  def new
+    @question = @test.questions.new
+  end
 
   def create
-    question = @test.questions.new(question_params)
-    result = question.save ? question : question.errors.messages
+    @question = @test.questions.new(question_params)
+    @question.save ? redirect_to(@test) : render(:new)
+  end
 
-    render plain: result.inspect
+  def update
+    @question.update(question_params) ? redirect_to(@question.test) : render(:edit)
   end
 
   def destroy
-    Question.destroy(params[:id])
-    render plain: "Вопрос id:#{params[:id]} успешно удалён"
+    @question.destroy
+    redirect_to(@question.test)
   end
 
   private
 
   def find_test
     @test = Test.find(params[:test_id])
+  end
+
+  def find_question
+    @question = Question.find(params[:id])
   end
 
   def question_params

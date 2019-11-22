@@ -1,8 +1,0 @@
-<section class="tests">
-  <h1>Все вопросы</h1>
-  <% @questions.limit(10).each do |question| %>
-    #<%= question.id %> Вопрос: <%= question.body %>
-    <%= link_to 'Удалить', question_path(question.id), :method => :delete %>
-    <br />
-  <% end %>
-</section>
