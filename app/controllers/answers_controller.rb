@@ -12,7 +12,7 @@ class AnswersController < ApplicationController
 
   def create
     @answer = @question.answers.new(answer_params)
-    @answer.save! ? redirect_to(@answer) : render(:new)
+    @answer.save ? redirect_to(@answer) : render(:new)
   end
 
   def update

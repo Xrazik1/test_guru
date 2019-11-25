@@ -9,7 +9,7 @@
 
 <p>
   Результат:
-  <% if @test_passage.result[:correct_questions_percent] > 85 %>
+  <% if @test_passage.succeed? %>
     <span style="color: green">
       <%= @test_passage.result[:correct_questions_percent] %>%
     </span>
