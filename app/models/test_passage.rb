@@ -17,6 +17,18 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
+  def result
+    {
+      total_questions_count: test.questions.size,
+      correct_questions_count: self.correct_questions,
+      correct_questions_percent: correct_answers_percent,
+    }
+  end
+
+  def question_number(question)
+    self.test.questions.find_index(question) + 1
+  end
+
   private
 
   def before_validation_set_next_question
@@ -25,6 +37,10 @@ class TestPassage < ApplicationRecord
 
   def before_validation_set_first_question
     self.current_question = test.questions.first if test.present?
+  end
+
+  def correct_answers_percent
+    (self.correct_questions.to_f / test.questions.size) * 100
   end
 
   def correct_answer?(answer_ids)
