@@ -5,16 +5,13 @@
 <section class="test_questions">
   <% if @test.questions.present? %>
     <h1>Вопросы данного теста: </h1>
-    <% @test.questions.each do |question| %>
-      #<%= question.id %> Вопрос: <%= question.body %>
-      <%= link_to 'Удалить', question_path(question.id), method: :delete %>
-      <%= link_to 'Изменить', edit_question_path(question.id), method: :get %>
-      <br />
-    <% end %>
+    <ol>
+      <%= render @test.questions %>
+    </ol>
   <% else %>
-      <p>
-        У теста отсутствуют вопросы
-      </p>
+    <p>
+      У теста отсутствуют вопросы
+    </p>
   <% end %>
 </section>
 

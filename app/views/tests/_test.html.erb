@@ -1,0 +1,7 @@
+<li>
+  Название теста: <%= test.title %>,
+  Уровень: <%= test.level %>,
+  Количество вопросов: <%= test.questions.size %>
+  <%= link_to 'Открыть', test_path(test), method: :get %>
+  <%= button_to 'Начать', start_test_path(test) %>
+</li>

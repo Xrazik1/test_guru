@@ -1,0 +1,8 @@
+<li>
+  <%= question.body %>
+  <%= link_to 'Удалить', question_path(question.id),
+              method: :delete,
+              data: { confirm: "Вы уверены?" } %>
+  <%= link_to 'Изменить', edit_question_path(question.id), method: :get %>
+  <%= link_to 'Открыть', question_path(question), method: :get %>
+</li>

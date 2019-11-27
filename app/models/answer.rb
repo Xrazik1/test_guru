@@ -5,7 +5,7 @@ class Answer < ApplicationRecord
 
   belongs_to :question
 
-  scope :correct, -> { where(correct: 'true') }
+  scope :correct, -> { where(correct: true) }
 
   validates :body, presence: true
   validate :validate_answers_count, on: :create
@@ -13,6 +13,7 @@ class Answer < ApplicationRecord
   private
 
   def validate_answers_count
-    errors.add :message, "'Вопрос достиг максимального числа ответов'" if question.answers.count >= ANSWERS_MAX_COUNT
+    answers_count = question.nil? ? 0 : question.answers.count
+    errors.add :message, "'Вопрос достиг максимального числа ответов'" if answers_count >= ANSWERS_MAX_COUNT
   end
 end

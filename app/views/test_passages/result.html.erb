@@ -1,0 +1,25 @@
+<h1>Тест '<%= @test_passage.test.title %>' был завершён</h1>
+
+<p>
+  Вы ответили на
+  <%= @test_passage.result[:correct_questions_count] %>
+  из
+  <%= @test_passage.result[:total_questions_count] %>
+</p>
+
+<p>
+  Результат:
+  <% if @test_passage.succeed? %>
+    <span style="color: green">
+      <%= @test_passage.result[:correct_questions_percent] %>%
+    </span>
+    Вы успешно прошли тест
+  <% else %>
+    <span style="color: red">
+      <%= @test_passage.result[:correct_questions_percent] %>%
+    </span>
+    Тест пройден неудачно, <%= link_to 'Заново', start_test_path(@test_passage.test), method: :post %>
+  <% end %>
+</p>
+
+<%= link_to 'К списку тестов', tests_path, method: :get %>
