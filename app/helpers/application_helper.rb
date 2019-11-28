@@ -8,4 +8,8 @@ module ApplicationHelper
   def github_link(author, repo)
     link_to repo, "https://github.com/#{author}/#{repo}", target: '_blank'
   end
+
+  def alert(message)
+    flash.now[:alert] = message
+  end
 end
