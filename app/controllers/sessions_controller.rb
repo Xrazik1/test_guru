@@ -9,10 +9,12 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
 
     if user&.authenticate(params[:password])
+      redirect_url = session[:source_url] || tests_url
       session[:user_id] = user.id
-      redirect_to tests_path
+
+      redirect_to redirect_url
     else
-      flash.now[:alert] = 'Если вы гуру, то подтвердите вашу почту и пароль'
+      alert('Если вы гуру, то подтвердите вашу почту и пароль')
       render(:new)
     end
   end
