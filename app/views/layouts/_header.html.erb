@@ -1,5 +1,8 @@
 <header>
+  <span class="logo"><%= link_to 'TestGuru', root_path %></span>
   <% if logged_in? %>
-    <p class="nav user">Добро пожаловать, <b><%= current_user.email %></b> Гуру</p>
+    <p class="nav user">Добро пожаловать, Гуру <b><%= current_user.name %></b> <%= link_to 'Выйти', login_url %></p>
+  <% else %>
+    <p class="nav user"><%= link_to 'Регистрация', signup_url %> <%= link_to 'Вход', login_url %></p>
   <% end  %>
 </header>
