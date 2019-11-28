@@ -8,9 +8,18 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate_user!
+    save_source_url
     unless current_user
       redirect_to login_path, alert: 'Если вы гуру, то подтвердите вашу почту и пароль'
     end
+  end
+
+  def save_source_url
+    session[:source_url] = request.path
+  end
+
+  def log_out!
+    reset_session if logged_in?
   end
 
   def current_user
