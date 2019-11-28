@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
-  def new
-    
-  end
+  before_action :log_out!, only: :new
 
   def create
     user = User.find_by(email: params[:email])
