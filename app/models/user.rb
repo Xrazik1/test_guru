@@ -7,8 +7,7 @@ class User < ApplicationRecord
   has_many :test_passages
   has_many :tests, through: :test_passages
 
-  validates :email, presence: true, format: { with: VALID_EMAIL_REGEXP }
-  validates_uniqueness_of :email
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEXP }, uniqueness: { scope: :email }
 
   has_secure_password
 
