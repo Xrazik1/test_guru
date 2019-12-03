@@ -4,11 +4,8 @@ Rails.application.routes.draw do
 
   root 'tests#index'
 
-  get :signup, to: 'users#new'
-  get :login, to: 'sessions#new'
-
-  resources :users, only: :create
-  resources :sessions, only: :create
+  devise_for :users, path_names: { sign_in: :login, sign_out: :logout },
+                     controllers: { registrations: 'users/registrations' }
 
   resources :tests do
     resources :questions, shallow: true, except: :index do

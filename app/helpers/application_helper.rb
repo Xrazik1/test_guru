@@ -9,7 +9,7 @@ module ApplicationHelper
     link_to repo, "https://github.com/#{author}/#{repo}", target: '_blank'
   end
 
-  def alert(message)
+  def render_alert(message)
     flash.now[:alert] = message
   end
 end
