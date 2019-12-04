@@ -12,7 +12,9 @@ frontend_cat = Category.create(title: 'Frontend')
 backend_cat = Category.create(title: 'Backend')
 
 author = User.create(name: 'Иван', surname: 'Иванов', email: 'ivan@mail.ru',
-                     password: '12345', privilege: 'author')
+                     password: '123456', privilege: 'author')
+User.create(name: 'Артем', surname: 'Петров', email: 'artem@mail.ru',
+            password: '123456', privilege: 'admin')
 
 test1 = Test.create(title: 'Ruby', level: 1, category_id: backend_cat.id, author_id: author.id)
 test2 = Test.create(title: 'Python', level: 0, category_id: backend_cat.id, author_id: author.id)

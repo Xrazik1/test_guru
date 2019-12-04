@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   devise_for :users, path_names: { sign_in: :login, sign_out: :logout },
                      controllers: { registrations: 'users/registrations' }
 
-  resources :tests do
-    resources :questions, shallow: true, except: :index do
-      resources :answers, shallow: true, except: :index
+  resources :tests, only: :index do
+    resources :questions, shallow: true, only: :show do
+      resources :answers, shallow: true, only: :show
     end
 
     member do
@@ -23,5 +23,12 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :admin do
+    resources :tests do
+      resources :questions, shallow: true, except: :index do
+        resources :answers, shallow: true, except: :index
+      end
+    end
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

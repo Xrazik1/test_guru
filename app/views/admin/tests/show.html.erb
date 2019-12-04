@@ -15,5 +15,9 @@
   <% end %>
 </section>
 
-<%= link_to 'Создать вопрос', new_test_question_path(@test), method: :get %>
-<%= link_to 'Назад', tests_path, method: :get %>
+<%= link_to 'Изменить', edit_admin_test_path(@test), method: :get %>
+<%= link_to 'Удалить', admin_test_path(@test),
+            method: :delete,
+            data: { confirm: "Вы уверены?" } %>
+<%= link_to 'Создать вопрос', new_admin_test_question_path(@test), method: :get %>
+<%= link_to 'Назад', admin_tests_path, method: :get %>

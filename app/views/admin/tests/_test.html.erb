@@ -1,0 +1,11 @@
+<li>
+  Название теста: <%= test.title %>,
+  Уровень: <%= test.level %>,
+  Количество вопросов: <%= test.questions.size %>
+  <%= link_to 'Открыть', admin_test_path(test), method: :get %>
+  <%= link_to 'Изменить', edit_admin_test_path(test), method: :get %>
+  <%= link_to 'Удалить', admin_test_path(test),
+              method: :delete,
+              data: { confirm: "Вы уверены?" } %>
+  <%= button_to 'Начать', start_test_path(test) %>
+</li>

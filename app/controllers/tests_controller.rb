@@ -2,13 +2,11 @@
 
 class TestsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_test, only: %i[show start]
+  before_action :find_test, only: %i[start]
 
   def index
     @tests = Test.all
   end
-
-  def show; end
 
   def start
     current_user.tests << @test
