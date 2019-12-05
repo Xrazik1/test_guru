@@ -19,7 +19,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def create
-    @test = Test.create(test_params)
+    @test = current_user.author_tests.new(test_params)
     @test.save ? redirect_to(admin_test_url(@test)) : render(:new)
   end
 
@@ -39,7 +39,6 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def test_params
-    # Такое ок?
-    params.require(:test).permit(:title, :level, :category_id).merge(author_id: current_user.id)
+    params.require(:test).permit(:title, :level, :category_id)
   end
 end
