@@ -7,8 +7,6 @@ class Admin::BaseController < ApplicationController
   private
 
   def admin_required!
-    unless current_user.privilege == 'admin'
-      redirect_to root_path, alert: 'Вы не авторизованы для того чтобы видеть данную страницу'
-    end
+    redirect_to root_path, alert: 'Вы не авторизованы для того чтобы видеть данную страницу' unless current_user.admin?
   end
 end
