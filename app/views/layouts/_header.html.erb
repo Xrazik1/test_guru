@@ -1,8 +1,14 @@
 <header>
   <span class="logo"><%= link_to 'TestGuru', root_path %></span>
-  <% if logged_in? %>
-    <p class="nav user">Добро пожаловать, Гуру <b><%= current_user.name %></b> <%= link_to 'Выйти', login_url %></p>
+  <% if user_signed_in? %>
+    <p class="nav user">
+      Добро пожаловать, Гуру <b><%= current_user.name %>
+      </b> <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
+    </p>
   <% else %>
-    <p class="nav user"><%= link_to 'Регистрация', signup_url %> <%= link_to 'Вход', login_url %></p>
+    <p class="nav user">
+      <%= link_to 'Регистрация', new_user_registration_path %>
+      <%= link_to 'Вход', new_user_session_path %>
+    </p>
   <% end  %>
 </header>

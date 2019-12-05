@@ -2,28 +2,13 @@
 
 class ApplicationController < ActionController::Base
 
-  helper_method :current_user,
-                :logged_in?
+  protected
 
-  private
-
-  def authenticate_user!
-    session[:source_url] = request.path
-
-    unless current_user
-      redirect_to login_path, alert: 'Если вы гуру, то подтвердите вашу почту и пароль'
+  def after_sign_in_path_for(resource)
+    if current_user.admin?
+      admin_tests_path
+    else
+      root_path
     end
-  end
-
-  def log_out!
-    reset_session if logged_in?
-  end
-
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-  end
-
-  def logged_in?
-    current_user.present?
   end
 end

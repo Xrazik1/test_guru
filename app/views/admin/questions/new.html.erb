@@ -1,0 +1,4 @@
+<h1><%= question_header(@question) %></h1>
+
+<%= render 'form', resources: {test: @test, question: @question} %>
+<%= link_to 'Назад', admin_test_path(@test), method: :get %>
