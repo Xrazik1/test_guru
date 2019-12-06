@@ -7,8 +7,10 @@ ru:
         title: 'Название'
         level: 'Уровень'
         category_id: 'Категория'
+        category: 'Категория'
     errors:
       messages:
+        errors_detected: 'Обнаружены ошибки:'
         record_invalid: 'Возникли ошибки: %{errors}'
         restrict_dependent_destroy:
           has_one: 'Невозможно удалить запись, так как существует зависимость: %{record}'
