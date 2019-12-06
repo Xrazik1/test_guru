@@ -1,6 +1,6 @@
 <% if resource.errors.present? %>
   <section>
-    <h2>В форме обнаружены ошибки</h2>
+    <h2><%= t('errors_detected') %></h2>
     <ul>
       <% resource.errors.full_messages.each do |message| %>
         <li><%= message %></li>

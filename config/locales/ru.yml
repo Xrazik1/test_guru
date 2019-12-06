@@ -1,11 +1,46 @@
 ru:
-  activerecord:
-    errors:
-      messages:
-        record_invalid: 'Возникли ошибки: %{errors}'
-        restrict_dependent_destroy:
-          has_one: 'Невозможно удалить запись, так как существует зависимость: %{record}'
-          has_many: 'Невозможно удалить запись, так как существуют зависимости: %{record}'
+  buttons:
+    back_btn: 'Назад'
+    start_test_btn: 'Начать'
+    edit_test_btn: 'Изменить'
+    delete_test_btn: 'Удалить'
+    open_test_btn: 'Открыть'
+    create_test_btn: 'Создать тест'
+    create_question_btn: 'Создать вопрос'
+
+  delete_confirm: 'Вы уверены?'
+
+  tests:
+    test:
+      title: 'Название'
+      level: 'Уровень'
+      questions_count: 'Количество вопросов'
+      start_btn: 'Начать'
+    index:
+      header: 'Все тесты'
+    show:
+      no_questions_message: 'У теста отсутствуют вопросы'
+      questions_list_title: 'Вопросы теста'
+      level: 'Уровень'
+
+  admin:
+    tests:
+      test:
+        title: 'Название'
+        level: 'Уровень'
+        questions_count: 'Количество вопросов'
+      index:
+        header: 'Все тесты'
+      new:
+        header: 'Создание теста'
+      edit:
+        header: 'Изменение теста %{title}'
+      show:
+        no_questions_message: 'У теста отсутствуют вопросы'
+        questions_list_title: 'Вопросы теста'
+        level: 'Уровень'
+
+
   date:
     abbr_day_names:
       - Вс

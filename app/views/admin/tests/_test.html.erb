@@ -1,11 +1,11 @@
 <li>
-  Название теста: <%= test.title %>,
-  Уровень: <%= test.level %>,
-  Количество вопросов: <%= test.questions.size %>
-  <%= link_to 'Открыть', admin_test_path(test), method: :get %>
-  <%= link_to 'Изменить', edit_admin_test_path(test), method: :get %>
-  <%= link_to 'Удалить', admin_test_path(test),
+  <%= t('.title') %>: <%= test.title %>,
+  <%= t('.level') %>: <%= test.level %>,
+  <%= t('.questions_count') %>: <%= test.questions.size %>
+  <%= link_to t('buttons.open_test_btn'), admin_test_path(test), method: :get %>
+  <%= link_to t('buttons.edit_test_btn'), edit_admin_test_path(test), method: :get %>
+  <%= link_to t('buttons.delete_test_btn'), admin_test_path(test),
               method: :delete,
-              data: { confirm: "Вы уверены?" } %>
-  <%= button_to 'Начать', start_test_path(test) %>
+              data: { confirm: t('delete_confirm') } %>
+  <%= button_to t('buttons.start_test_btn'), start_test_path(test) %>
 </li>

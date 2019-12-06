@@ -1,6 +1,6 @@
 <li>
-  Название теста: <%= test.title %>,
-  Уровень: <%= test.level %>,
-  Количество вопросов: <%= test.questions.size %>
-  <%= button_to 'Начать', start_test_path(test) %>
+  <%= t('.title') %>: <%= test.title %>,
+  <%= t('.level') %>: <%= test.level %>,
+  <%= t('.questions_count') %>: <%= test.questions.size %>
+  <%= button_to t('buttons.start_test_btn'), start_test_path(test) %>
 </li>

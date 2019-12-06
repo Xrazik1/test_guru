@@ -31,3 +31,43 @@
 
 en:
   hello: "Hello world"
+  buttons:
+    back_btn: 'Back'
+    start_test_btn: 'Start'
+    edit_test_btn: 'Edit'
+    delete_test_btn: 'Delete'
+    open_test_btn: 'Open'
+    create_test_btn: 'Create test'
+    create_question_btn: 'Create question'
+
+  delete_confirm: 'Are you sure?'
+
+  tests:
+    test:
+      title: 'Title'
+      level: 'Level'
+      questions_count: 'Questions count'
+      start_btn: 'Start'
+    index:
+      header: 'All the tests'
+    show:
+      no_questions_message: 'The test has no questions'
+      questions_list_title: 'Questions of the test'
+      level: 'Level'
+
+  admin:
+    tests:
+      test:
+        title: 'Title'
+        level: 'Level'
+        questions_count: 'Questions count'
+      index:
+        header: 'All the tests'
+      new:
+        header: 'Create test'
+      edit:
+        header: 'Editing test %{title}'
+      show:
+        no_questions_message: 'The test has no questions'
+        questions_list_title: 'Questions of the test'
+        level: 'Level'
