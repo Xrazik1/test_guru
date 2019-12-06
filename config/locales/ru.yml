@@ -7,8 +7,23 @@ ru:
     open_test_btn: 'Открыть'
     create_test_btn: 'Создать тест'
     create_question_btn: 'Создать вопрос'
+    next_question_btn: 'Дальше'
+    repeat_test_button: 'Заново'
+    to_tests_list_button: 'К списку тестов'
 
   delete_confirm: 'Вы уверены?'
+
+  test_passages:
+    show:
+      test_title: 'Прохождение теста: %{title}'
+      question_body: 'Вопрос: %{body}'
+      questions_answered: 'Вопрос %{count1} из %{count2}'
+    result:
+      test_was_passed: 'Тест "%{title}" был завершён'
+      questions_passed: 'Вы ответили на %{count1} из %{count2} вопросов'
+      test_result: 'Результат'
+      test_succeed: 'Вы успешно прошли тест'
+      test_unsuccessful: 'Тест пройден неудачно'
 
   tests:
     test:

@@ -39,8 +39,23 @@ en:
     open_test_btn: 'Open'
     create_test_btn: 'Create test'
     create_question_btn: 'Create question'
+    next_question_btn: 'Next'
+    repeat_test_button: 'Try again'
+    to_tests_list_button: 'To tests list'
 
   delete_confirm: 'Are you sure?'
+
+  test_passages:
+    show:
+      test_title: 'Passing the test: %{title}'
+      question_body: 'Question: %{body}'
+      questions_answered: 'Question %{count1} of %{count2}'
+    result:
+      test_was_passed: 'Test "%{title}" has completed'
+      questions_passed: 'You have answered on %{count1} questions of %{count2}'
+      test_result: 'Result'
+      test_succeed: 'You have successfully passed the test'
+      test_unsuccessful: 'Test has passed unsuccessfully'
 
   tests:
     test:
