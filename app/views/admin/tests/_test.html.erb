@@ -1,11 +1,12 @@
-<li>
-  <%= t('.title') %>: <%= test.title %>,
-  <%= t('.level') %>: <%= test.level %>,
-  <%= t('.questions_count') %>: <%= test.questions.size %>
-  <%= link_to t('buttons.open_test_btn'), admin_test_path(test), method: :get %>
-  <%= link_to t('buttons.edit_test_btn'), edit_admin_test_path(test), method: :get %>
-  <%= link_to t('buttons.delete_test_btn'), admin_test_path(test),
-              method: :delete,
-              data: { confirm: t('delete_confirm') } %>
-  <%= button_to t('buttons.start_test_btn'), start_test_path(test) %>
-</li>
+<tr>
+  <th scope="row"><%= test.title %></th>
+  <td><%= test.level %></td>
+  <td><%= test.questions.size %></td>
+  <td><%= button_to t('buttons.open_test_btn'), admin_test_path(test), method: :get, class: 'btn btn-primary' %></td>
+  <td><%= button_to t('buttons.edit_test_btn'), edit_admin_test_path(test), method: :get, class: 'btn btn-warning' %></td>
+  <td><%= button_to t('buttons.delete_test_btn'), admin_test_path(test),
+                    method: :delete,
+                    data: { confirm: t('delete_confirm') },
+                    class: 'btn btn-danger' %></td>
+  <td><%= button_to t('buttons.start_test_btn'), start_test_path(test), class: 'btn btn-success' %></td>
+</tr>

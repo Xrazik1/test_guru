@@ -1,9 +1,9 @@
 <% if resource.errors.present? %>
   <section>
-    <h2><%= t('activerecord.errors.messages.errors_detected') %></h2>
-    <ul>
+    <h3><%= t('activerecord.errors.messages.errors_detected') %></h3>
+    <ul class="list-group">
       <% resource.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <li class="list-group-item list-group-item-danger"><%= message %></li>
       <% end %>
     </ul>
   </section>

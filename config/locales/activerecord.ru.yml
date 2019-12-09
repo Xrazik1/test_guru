@@ -8,6 +8,7 @@ ru:
         level: 'Уровень'
         category_id: 'Категория'
         category: 'Категория'
+
     errors:
       messages:
         errors_detected: 'Обнаружены ошибки:'
