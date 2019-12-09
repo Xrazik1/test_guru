@@ -1,11 +1,61 @@
 ru:
-  activerecord:
-    errors:
-      messages:
-        record_invalid: 'Возникли ошибки: %{errors}'
-        restrict_dependent_destroy:
-          has_one: 'Невозможно удалить запись, так как существует зависимость: %{record}'
-          has_many: 'Невозможно удалить запись, так как существуют зависимости: %{record}'
+  buttons:
+    back_btn: 'Назад'
+    start_test_btn: 'Начать'
+    edit_test_btn: 'Изменить'
+    delete_test_btn: 'Удалить'
+    open_test_btn: 'Открыть'
+    create_test_btn: 'Создать тест'
+    create_question_btn: 'Создать вопрос'
+    next_question_btn: 'Дальше'
+    repeat_test_button: 'Заново'
+    to_tests_list_button: 'К списку тестов'
+
+  delete_confirm: 'Вы уверены?'
+
+  test_passages:
+    show:
+      test_title: 'Прохождение теста: %{title}'
+      question_body: 'Вопрос: %{body}'
+      questions_answered: 'Вопрос %{count1} из %{count2}'
+    result:
+      test_was_passed: 'Тест "%{title}" был завершён'
+      questions_passed: 'Вы ответили на %{count1} из %{count2} вопросов'
+      test_result: 'Результат'
+      test_succeed: 'Вы успешно прошли тест'
+      test_unsuccessful: 'Тест пройден неудачно'
+
+  tests:
+    test:
+      title: 'Название'
+      level: 'Уровень'
+      questions_count: 'Количество вопросов'
+      start_btn: 'Начать'
+    index:
+      header: 'Все тесты'
+    show:
+      no_questions_message: 'У теста отсутствуют вопросы'
+      questions_list_title: 'Вопросы теста'
+      level: 'Уровень'
+
+  admin:
+    tests:
+      test:
+        title: 'Название'
+        level: 'Уровень'
+        questions_count: 'Количество вопросов'
+      index:
+        header: 'Все тесты'
+      new:
+        header: 'Создание теста'
+      edit:
+        header: 'Изменение теста %{title}'
+      show:
+        no_questions_message: 'У теста отсутствуют вопросы'
+        questions_list_title: 'Вопросы теста'
+        level: 'Уровень'
+
+
   date:
     abbr_day_names:
       - Вс

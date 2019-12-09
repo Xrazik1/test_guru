@@ -1,23 +1,23 @@
 <section class="test">
-  <h1>Тест: <%= @test.title %></h1>
-  <span>Уровень теста: <%= @test.level %></span>
+  <h1><%= Test.model_name.human %>: <%= @test.title %></h1>
+  <span><%= t('.level') %>: <%= @test.level %></span>
 </section>
 <section class="test_questions">
   <% if @test.questions.present? %>
-    <h1>Вопросы данного теста: </h1>
+    <h1><%= t('.questions_list_title') %>: </h1>
     <ol>
       <%= render @test.questions %>
     </ol>
   <% else %>
     <p>
-      У теста отсутствуют вопросы
+      <%= t('.no_questions_message') %>
     </p>
   <% end %>
 </section>
 
-<%= link_to 'Изменить', edit_admin_test_path(@test), method: :get %>
-<%= link_to 'Удалить', admin_test_path(@test),
+<%= link_to t('buttons.edit_test_btn'), edit_admin_test_path(@test), method: :get %>
+<%= link_to t('buttons.delete_test_btn'), admin_test_path(@test),
             method: :delete,
-            data: { confirm: "Вы уверены?" } %>
-<%= link_to 'Создать вопрос', new_admin_test_question_path(@test), method: :get %>
-<%= link_to 'Назад', admin_tests_path, method: :get %>
+            data: { confirm: t('delete_confirm') } %>
+<%= link_to t('buttons.create_question_btn'), new_admin_test_question_path(@test), method: :get %>
+<%= link_to t('buttons.back_btn'), admin_tests_path, method: :get %>

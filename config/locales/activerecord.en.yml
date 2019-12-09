@@ -1,0 +1,14 @@
+en:
+  activerecord:
+    models:
+      test: 'Test'
+    attributes:
+      test:
+        title: 'Title'
+        level: 'Level'
+        category_id: 'Category'
+        category: 'Category'
+    errors:
+        messages:
+          errors_detected: 'Errors detected:'
+

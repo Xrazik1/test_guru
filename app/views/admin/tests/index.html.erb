@@ -1,5 +1,5 @@
 <section class="tests">
-  <h1>Все тесты</h1>
+  <h1><%= t('.header') %></h1>
   <%= render @tests %>
-  <%= link_to 'Создать тест', new_admin_test_path(@test) %>
+  <%= link_to t('buttons.create_test_btn'), new_admin_test_path(@test) %>
 </section>
