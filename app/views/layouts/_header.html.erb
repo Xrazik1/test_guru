@@ -4,6 +4,7 @@
       <%= link_to 'TestGuru', root_path %>
       <% if current_user&.admin? %>
         | <span style="font-weight: bold"><%= link_to 'Admin Panel', admin_tests_path %></span>
+        | <span style="font-size: .7em"><%= link_to 'Show created gists', admin_gists_url %></span>
       <% end %>
     </div>
     <span class="navbar-text">

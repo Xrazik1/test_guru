@@ -1,0 +1,5 @@
+<tr>
+  <td><a href="<%= admin_question_url(gist.question) %>" target="_blank"><%= gist.question.body.slice(0..25) %></td>
+  <td><%= gist.user.email %></td>
+  <td><a href="<%= gist.url %>" target="_blank"><%= gist.url %></td>
+</tr>
