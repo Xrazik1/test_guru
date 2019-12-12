@@ -57,9 +57,6 @@ en:
       test_result: 'Result'
       test_succeed: 'You have successfully passed the test'
       test_unsuccessful: 'Test has passed unsuccessfully'
-    gist:
-      success: 'Gist has successfully saved!'
-      failure: 'An error occurred while saving gist'
 
   tests:
     index:
@@ -87,3 +84,8 @@ en:
         no_questions_message: 'The test has no questions'
         questions_list_title: 'Questions of the test'
         level: 'Level'
+    gists:
+      index:
+        header: 'Список созданных gists'
+        question_body: 'Содержание вопроса'
+        user: 'Пользователь'

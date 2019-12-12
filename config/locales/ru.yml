@@ -26,7 +26,7 @@ ru:
       test_succeed: 'Вы успешно прошли тест'
       test_unsuccessful: 'Тест пройден неудачно'
     gist:
-      success: 'Gist успешно сохранён!'
+      success: 'Gist успешно сохранён - %{link}'
       failure: 'Во время сохранения gist произошла ошибка'
 
   tests:
@@ -55,6 +55,12 @@ ru:
         no_questions_message: 'У теста отсутствуют вопросы'
         questions_list_title: 'Вопросы теста'
         level: 'Уровень'
+    gists:
+      index:
+        header: 'Список созданных gists'
+        question_body: 'Содержание вопроса'
+        user: 'Пользователь'
+
 
 
   date:
