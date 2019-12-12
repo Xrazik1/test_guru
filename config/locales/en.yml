@@ -58,13 +58,11 @@ en:
       test_unsuccessful: 'Test has passed unsuccessfully'
 
   tests:
-    test:
+    index:
+      header: 'All the tests'
       title: 'Title'
       level: 'Level'
       questions_count: 'Questions count'
-      start_btn: 'Start'
-    index:
-      header: 'All the tests'
     show:
       no_questions_message: 'The test has no questions'
       questions_list_title: 'Questions of the test'
@@ -72,12 +70,11 @@ en:
 
   admin:
     tests:
-      test:
+      index:
+        header: 'All the tests'
         title: 'Title'
         level: 'Level'
         questions_count: 'Questions count'
-      index:
-        header: 'All the tests'
       new:
         header: 'Create test'
       edit:

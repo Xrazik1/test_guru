@@ -26,13 +26,11 @@ ru:
       test_unsuccessful: 'Тест пройден неудачно'
 
   tests:
-    test:
+    index:
+      header: 'Все тесты'
       title: 'Название'
       level: 'Уровень'
       questions_count: 'Количество вопросов'
-      start_btn: 'Начать'
-    index:
-      header: 'Все тесты'
     show:
       no_questions_message: 'У теста отсутствуют вопросы'
       questions_list_title: 'Вопросы теста'
@@ -40,12 +38,11 @@ ru:
 
   admin:
     tests:
-      test:
+      index:
+        header: 'Все тесты'
         title: 'Название'
         level: 'Уровень'
         questions_count: 'Количество вопросов'
-      index:
-        header: 'Все тесты'
       new:
         header: 'Создание теста'
       edit:

@@ -1,4 +1,16 @@
 <section class="tests">
   <h1><%= t('.header') %></h1>
-  <%= render @tests %>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col"><%= t('.title') %></th>
+      <th scope="col"><%= t('.level') %></th>
+      <th scope="col"><%= t('.questions_count') %></th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <%= render @tests %>
+    </tbody>
+  </table>
 </section>
