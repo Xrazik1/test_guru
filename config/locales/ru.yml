@@ -10,6 +10,7 @@ ru:
     next_question_btn: 'Дальше'
     repeat_test_button: 'Заново'
     to_tests_list_button: 'К списку тестов'
+    save_gist: 'Сохранить в gists'
 
   delete_confirm: 'Вы уверены?'
 
@@ -24,6 +25,9 @@ ru:
       test_result: 'Результат'
       test_succeed: 'Вы успешно прошли тест'
       test_unsuccessful: 'Тест пройден неудачно'
+    gist:
+      success: 'Gist успешно сохранён!'
+      failure: 'Во время сохранения gist произошла ошибка'
 
   tests:
     index:

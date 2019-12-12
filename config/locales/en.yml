@@ -42,6 +42,7 @@ en:
     next_question_btn: 'Next'
     repeat_test_button: 'Try again'
     to_tests_list_button: 'To tests list'
+    save_gist: 'Save question to gists'
 
   delete_confirm: 'Are you sure?'
 
@@ -56,6 +57,9 @@ en:
       test_result: 'Result'
       test_succeed: 'You have successfully passed the test'
       test_unsuccessful: 'Test has passed unsuccessfully'
+    gist:
+      success: 'Gist has successfully saved!'
+      failure: 'An error occurred while saving gist'
 
   tests:
     index:

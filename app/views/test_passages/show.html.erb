@@ -1,7 +1,7 @@
 <h1><%= t('.test_title', title: @test_passage.test.title) %></h1>
 
 <b>
-  <%= t('.question_body', body: @test_passage.current_question.body) %>
+  <b><%= t('.question_body', body: @test_passage.current_question.body) %></b>
 </b>
 
 <p>
@@ -20,5 +20,6 @@
     <%= b.label %>
   <% end %>
 
+  <p><%= link_to t('buttons.save_gist'), gist_test_passage_path(@test_passage), method: :post %></p>
   <p><%= form.submit t('buttons.next_question_btn') %></p>
 <% end %>
