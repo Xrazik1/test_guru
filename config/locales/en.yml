@@ -42,6 +42,7 @@ en:
     next_question_btn: 'Next'
     repeat_test_button: 'Try again'
     to_tests_list_button: 'To tests list'
+    save_gist: 'Save question to gists'
 
   delete_confirm: 'Are you sure?'
 
@@ -83,3 +84,8 @@ en:
         no_questions_message: 'The test has no questions'
         questions_list_title: 'Questions of the test'
         level: 'Level'
+    gists:
+      index:
+        header: 'Список созданных gists'
+        question_body: 'Содержание вопроса'
+        user: 'Пользователь'
