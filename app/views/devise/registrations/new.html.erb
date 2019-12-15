@@ -1,34 +1,52 @@
 <h2><%= t('.sign_up') %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource,
+             as: resource_name,
+             :html => { class: 'registration_form'},
+             url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
+  <div class="field email">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+
+    <%= octicon "check", class: 'text-success hide' %>
+    <%= octicon "x", class: 'text-danger hide' %>
   </div>
 
-  <div class="field">
+  <div class="field name">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+
+    <%= octicon "check", class: 'text-success hide' %>
+    <%= octicon "x", class: 'text-danger hide' %>
   </div>
 
-  <div class="field">
+  <div class="field surname">
     <%= f.label :surname %><br />
     <%= f.text_field :surname, autofocus: true, autocomplete: "surname" %>
+
+    <%= octicon "check", class: 'text-success hide' %>
+    <%= octicon "x", class: 'text-danger hide' %>
   </div>
 
-  <div class="field">
+  <div class="field password">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
+
+    <%= octicon "check", class: 'text-success hide' %>
+    <%= octicon "x", class: 'text-danger hide' %>
   </div>
 
-  <div class="field">
+  <div class="field password_confirm">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+
+    <%= octicon "check", class: 'text-success hide' %>
+    <%= octicon "x", class: 'text-danger hide' %>
   </div>
 
   <div class="actions">
