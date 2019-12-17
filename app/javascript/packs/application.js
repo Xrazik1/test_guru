@@ -11,6 +11,7 @@ require("channels")
 require("utilities/sorting")
 require("utilities/inputs_checking")
 require("utilities/progress_bar")
+require("utilities/form_inline")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
