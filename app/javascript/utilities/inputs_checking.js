@@ -10,7 +10,7 @@ let inputs_checker = (register_form) => {
     let surname_input          = register_form.querySelector('.surname > input');
     let password_input         = register_form.querySelector('.password > input');
     let password_confirm_input = register_form.querySelector('.password_confirm > input');
-
+ 
     [
         email_input,
         name_input,
