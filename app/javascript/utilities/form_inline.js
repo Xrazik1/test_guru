@@ -38,7 +38,3 @@ let form_inline_handler = (test_id) => {
         link.value = 'Edit';
     }
 };
-
-
-
-
