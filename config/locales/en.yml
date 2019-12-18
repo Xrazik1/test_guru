@@ -84,6 +84,8 @@ en:
         no_questions_message: 'The test has no questions'
         questions_list_title: 'Questions of the test'
         level: 'Level'
+      form_inline:
+        submit: 'OK'
     gists:
       index:
         header: 'Список созданных gists'

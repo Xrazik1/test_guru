@@ -55,4 +55,3 @@ let equality_checker = (confirm_input, target_input) => {
         success_flag.classList.add('hide');
     }
 };
-

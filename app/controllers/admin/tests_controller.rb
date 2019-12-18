@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class Admin::TestsController < Admin::BaseController
-  before_action :find_test, only: %i[show start destroy update edit]
+  before_action :find_tests, only: %i[index update_inline]
+  before_action :find_test, only: %i[show start destroy update edit update_inline]
 
   def index
     @tests = Test.all
@@ -27,6 +28,10 @@ class Admin::TestsController < Admin::BaseController
     @test.update(test_params) ? redirect_to(admin_test_url(@test)) : render(:edit)
   end
 
+  def update_inline
+    @test.update(test_params) ? redirect_to(admin_tests_path) : render(:index)
+  end
+
   def destroy
     @test.destroy
     redirect_to(admin_tests_url)
@@ -36,6 +41,10 @@ class Admin::TestsController < Admin::BaseController
 
   def find_test
     @test = Test.find(params[:id])
+  end
+
+  def find_tests
+    @tests = Test.all
   end
 
   def test_params

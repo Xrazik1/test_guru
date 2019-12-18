@@ -55,6 +55,8 @@ ru:
         no_questions_message: 'У теста отсутствуют вопросы'
         questions_list_title: 'Вопросы теста'
         level: 'Уровень'
+      form_inline:
+        submit: 'OK'
     gists:
       index:
         header: 'Список созданных gists'

@@ -14,7 +14,7 @@ class GistQuestionService
   end
 
   def success?
-    true if @last_response.status == 201
+    @last_response.status == 201
   end
 
   private
