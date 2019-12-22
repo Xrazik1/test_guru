@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationMailer < ActionMailer::Base
-  default from: %("TestGuru" <mail@testguru.com>)
+  @app_email = Rails.application.config.action_mailer.smtp_options[:user_name] + 'gmail.com'
+
+  default from: %W[TestGuru <#{@app_email}>]
   layout 'mailer'
 end
