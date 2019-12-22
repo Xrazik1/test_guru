@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationMailer < ActionMailer::Base
-  @app_email = Rails.application.config.action_mailer.smtp_options[:user_name] + 'gmail.com'
+  @feedback_email = ENV['FEEDBACK_EMAIL']
 
-  default from: %W[TestGuru <#{@app_email}>]
+  default from: %W[TestGuru <#{@feedback_email}>]
   layout 'mailer'
 end
