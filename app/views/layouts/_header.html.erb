@@ -6,7 +6,9 @@
         | <span style="font-weight: bold"><%= link_to 'Admin Panel', admin_tests_path %></span>
         | <span style="font-size: .7em"><%= link_to 'Show created gists', admin_gists_url %></span>
       <% end %>
-      | <span style="font-size: .7em"><%= link_to 'Обратная связь', new_feedback_url %></span>
+      <% if user_signed_in? %>
+        | <span style="font-size: .7em"><%= link_to 'Обратная связь', new_feedback_url %></span>
+      <% end %>
     </div>
     <span class="navbar-text">
       <% if user_signed_in? %>
