@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :test_passages
   has_many :tests, through: :test_passages
   has_many :gists
+  has_many :feedbacks
 
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEXP }, uniqueness: { scope: :email }
   validates :name, presence: true
