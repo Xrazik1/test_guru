@@ -8,7 +8,9 @@ class Admin::TestsController < Admin::BaseController
     @tests = Test.all
   end
 
-  def show; end
+  def show
+    @passage_minutes, @passage_seconds = @test.passage_time.divmod(60)
+  end
 
   def start
     current_user.tests << @test
@@ -48,6 +50,6 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id)
+    params.require(:test).permit(:title, :level, :category_id, :passage_time)
   end
 end

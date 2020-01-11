@@ -1,4 +1,14 @@
 <h1><%= t('.test_title', title: @test_passage.test.title) %></h1>
+<span>
+  <% if @test_passage.test.passage_time > 0 %>
+    Время до завершения теста:
+    <b class="timer" data-start-time="<%= @test_passage.start_time %>" data-end-time="<%= @test_passage.end_time %>">
+      Осталось <span class="minutes"></span> минут и <span class="seconds"></span> секунд
+    </b>
+  <% else %>
+    <b>У теста неограниченное время прохождения</b>
+  <% end %>
+</span>
 
 <p>
   <b><%= t('.question_body', body: @test_passage.current_question.body) %></b>

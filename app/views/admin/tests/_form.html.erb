@@ -17,6 +17,11 @@
     </p>
 
     <p>
+      <%= form.label :passage_time, 'Введите время прохождения теста в секундах (0 если тест не имеет ограничений по времени)' %><br>
+      <%= form.number_field :passage_time, id: :test_passage_time, class: 'form-control' %>
+    </p>
+
+    <p>
       <%= form.submit class: 'btn btn-primary' %>
     </p>
   </div>

@@ -27,6 +27,14 @@ class TestPassage < ApplicationRecord
     }
   end
 
+  def end_time
+    start_time + test.passage_time
+  end
+
+  def start_time
+    created_at.to_i
+  end
+
   def question_number(question)
     self.test.questions.find_index(question) + 1
   end
