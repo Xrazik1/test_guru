@@ -5,9 +5,11 @@
       <% if current_user&.admin? %>
         | <span style="font-weight: bold"><%= link_to 'Admin Panel', admin_tests_path %></span>
         | <span style="font-size: .7em"><%= link_to 'Show created gists', admin_gists_url %></span>
+        | <span style="font-size: .7em"><%= link_to 'Show created badges', admin_badges_url %></span>
       <% end %>
       <% if user_signed_in? %>
         | <span style="font-size: .7em"><%= link_to 'Обратная связь', new_feedback_url %></span>
+        | <span style="font-size: .7em"><%= link_to 'Ваши значки', badges_url %></span>
       <% end %>
     </div>
     <span class="navbar-text">

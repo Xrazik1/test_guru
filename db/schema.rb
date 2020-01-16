@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_10_074828) do
+ActiveRecord::Schema.define(version: 2020_01_13_143034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,32 @@ ActiveRecord::Schema.define(version: 2020_01_10_074828) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "correct"
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "badge_rules", force: :cascade do |t|
+    t.string "title", null: false
+    t.integer "level", default: -1
+    t.bigint "category_id", default: -1
+    t.integer "attempt", default: -1
+    t.boolean "attempt_badge", default: false, null: false
+    t.boolean "category_badge", default: false, null: false
+    t.boolean "level_badge", default: false, null: false
+    t.index ["category_id"], name: "index_badge_rules_on_category_id"
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "icon_url", default: "https://clipartsworld.com/images/clipart-ribbon-png-6.png", null: false
+    t.bigint "badge_rule_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["badge_rule_id"], name: "index_badges_on_badge_rule_id"
+  end
+
+  create_table "badges_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "badge_id", null: false
+    t.index ["user_id", "badge_id"], name: "index_badges_users_on_user_id_and_badge_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -59,6 +85,7 @@ ActiveRecord::Schema.define(version: 2020_01_10_074828) do
     t.integer "correct_questions", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "successfully_passed", default: false
     t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
     t.index ["test_id"], name: "index_test_passages_on_test_id"
     t.index ["user_id"], name: "index_test_passages_on_user_id"

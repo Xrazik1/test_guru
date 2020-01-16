@@ -1,0 +1,14 @@
+<p>
+  <h2>Название бейджа</h2>
+  <%= @badge.title %>
+
+  <h2>Иконка</h2>
+  <img class="badge_url" src="<%= @badge.icon_url %>" alt="Значок" />
+</p>
+
+<p>
+  <b>Правило получения: </b>
+  <%= @badge.badge_rule.title %>
+</p>
+
+<%= link_to 'Назад', admin_badges_path %>

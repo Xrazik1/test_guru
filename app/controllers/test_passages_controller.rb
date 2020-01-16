@@ -5,7 +5,20 @@ class TestPassagesController < ApplicationController
   before_action :set_test_passage, only: %i[show update result gist]
 
   def show; end
-  def result; end
+
+  def result
+    if @test_passage.succeed?
+      @test_passage.successfully_passed = true
+      @test_passage.save
+
+      new_badges = BadgesService.new(@test_passage).look_for_badges
+
+      if new_badges.present?
+        @test_passage.user.badges = @test_passage.user.badges + new_badges
+        flash[:success] = 'У вас появились новые значки'
+      end
+    end
+  end
 
   def update
     if @test_passage.passage_time_expired?
