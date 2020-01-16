@@ -36,6 +36,8 @@ class TestPassage < ApplicationRecord
   end
 
   def passage_time_expired?
+    return false if test.passage_time.zero?
+
     Time.now.to_i > end_time
   end
 
@@ -76,6 +78,6 @@ class TestPassage < ApplicationRecord
   end
 
   def next_question
-    test.questions.order(:id).where('id > ?', current_question.id).first
+    test.questions.order(:id).where('id > ?', current_question&.id).first
   end
 end
