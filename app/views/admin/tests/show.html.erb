@@ -1,7 +1,13 @@
 <section class="test">
   <h1><%= Test.model_name.human %>: <%= @test.title %></h1>
-  <span><%= t('.level') %>: <%= @test.level %></span>
+  <div><%= t('.level') %>: <%= @test.level %></div>
+  <% if @test.passage_time.zero? %>
+    <div>Время прохождения не задано</div>
+  <% else %>
+    <div>Время прохождения теста: <%= @passage_minutes %> минут, <%= @passage_seconds %> секунд</div>
+  <% end %>
 </section>
+
 <section class="test_questions">
   <% if @test.questions.present? %>
     <h1><%= t('.questions_list_title') %>: </h1>

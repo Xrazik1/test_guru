@@ -1,0 +1,22 @@
+<%= form_with(model: [:admin, @badge], local: true) do |form| %>
+  <%= render 'shared/errors', resource: @badge %>
+
+  <p>
+    <%= form.label :title, 'Название' %>
+    <%= form.text_area :title, id: :badge_title %>
+  </p>
+
+  <p>
+    <%= form.label :icon_url, 'URL картинки значка' %>
+    <%= form.text_area :icon_url, id: :badge_icon_url %>
+  </p>
+
+  <p>
+    <%= form.label :rule_id, 'Выберите правило получения' %>
+    <%= form.collection_select :rule_id, BadgeRule.all, :id, :title, prompt: true, class: 'form-control' %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

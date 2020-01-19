@@ -27,11 +27,27 @@ class TestPassage < ApplicationRecord
     }
   end
 
+  def end_time
+    start_time + test.passage_time
+  end
+
+  def start_time
+    created_at.to_i
+  end
+
+  def passage_time_expired?
+    return false if test.passage_time.zero?
+
+    Time.now.to_i > end_time
+  end
+
   def question_number(question)
     self.test.questions.find_index(question) + 1
   end
 
   def succeed?
+    return false if passage_time_expired?
+
     correct_questions_percent >= PASSAGE_SUCCESS_PERCENT
   end
 
@@ -62,6 +78,6 @@ class TestPassage < ApplicationRecord
   end
 
   def next_question
-    test.questions.order(:id).where('id > ?', current_question.id).first
+    test.questions.order(:id).where('id > ?', current_question&.id).first
   end
 end

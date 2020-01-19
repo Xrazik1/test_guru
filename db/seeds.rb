@@ -55,3 +55,7 @@ Answer.create(body: 'HyperText Markup Language', question_id: question1.id, corr
 Answer.create(body: 'HyperTransfer Markup Language', question_id: question1.id, correct: false)
 Answer.create(body: 'HyperTransport Markup Language', question_id: question1.id, correct: false)
 Answer.create(body: 'HyperText Manage Language', question_id: question1.id, correct: false)
+
+BadgeRule.create(title: 'attempt', attempt: 1, attempt_badge: true)
+BadgeRule.create(title: 'category', category_id: 2, category_badge: true)
+BadgeRule.create(title: 'level', level: 1, level_badge: true)

@@ -19,6 +19,10 @@
     </span>
     <%= t('.test_unsuccessful') %>
     <%= link_to t('buttons.repeat_test_button'), start_test_path(@test_passage.test), method: :post %>
+
+    <% if @test_passage.passage_time_expired? %>
+      <div>Вы не успели завершить тест за отведённое время</div>
+    <% end %>
   <% end %>
 </p>
 

@@ -1,0 +1,9 @@
+<p>
+  <img class="badge_url" src="<%= badge.icon_url %>" alt="Значок" />
+  <%= badge.title %>
+  <%= link_to 'Открыть', admin_badge_path(badge) %>
+  <%= link_to 'Удалить', admin_badge_path(badge),
+              method: :delete,
+              data: { confirm: "Вы уверены?" }
+  %>
+</p>

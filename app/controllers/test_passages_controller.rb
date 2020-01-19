@@ -5,9 +5,21 @@ class TestPassagesController < ApplicationController
   before_action :set_test_passage, only: %i[show update result gist]
 
   def show; end
-  def result; end
+
+  def result
+    if @test_passage.succeed?
+      @test_passage.successfully_passed = true
+      @test_passage.save
+
+      new_badges = BadgesService.new(@test_passage).handle_badges
+
+      flash[:success] = 'У вас появились новые значки' if new_badges.present?
+    end
+  end
 
   def update
+    return redirect_to(result_test_passage_path(@test_passage)) if @test_passage.passage_time_expired?
+
     @test_passage.accept!(params[:answer_ids])
 
     if @test_passage.completed?

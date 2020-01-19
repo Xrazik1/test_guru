@@ -1,0 +1,12 @@
+<section class="badge">
+  <h2>Ваши бейджи</h2>
+
+  <% if current_user.badges.empty? %>
+    <p>У вас отсутствуют бейджи</p>
+  <% else %>
+    <%= render @user_badges %>
+  <% end %>
+
+  <h2>Существующие бейджи</h2>
+  <%= render @all_badges %>
+</section>
