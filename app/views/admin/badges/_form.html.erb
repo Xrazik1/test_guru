@@ -12,8 +12,8 @@
   </p>
 
   <p>
-    <%= form.label :badge_rule_id, 'Выберите правило получения' %>
-    <%= form.collection_select :badge_rule_id, BadgeRule.all, :id, :title, prompt: true, class: 'form-control' %>
+    <%= form.label :rule_id, 'Выберите правило получения' %>
+    <%= form.collection_select :rule_id, BadgeRule.all, :id, :title, prompt: true, class: 'form-control' %>
   </p>
 
   <p>

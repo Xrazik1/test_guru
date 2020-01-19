@@ -38,10 +38,10 @@ ActiveRecord::Schema.define(version: 2020_01_13_143034) do
   create_table "badges", force: :cascade do |t|
     t.string "title", null: false
     t.string "icon_url", default: "https://clipartsworld.com/images/clipart-ribbon-png-6.png", null: false
-    t.bigint "badge_rule_id", null: false
+    t.bigint "rule_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["badge_rule_id"], name: "index_badges_on_badge_rule_id"
+    t.index ["rule_id"], name: "index_badges_on_rule_id"
   end
 
   create_table "badges_users", id: false, force: :cascade do |t|

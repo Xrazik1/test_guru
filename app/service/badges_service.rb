@@ -4,43 +4,30 @@ class BadgesService
   def initialize(test_passage)
     @test_passage = test_passage
     @user         = @test_passage.user
-    @badge_rules  = BadgeRule.all
+    @badges       = Badge.all
   end
 
-  def look_for_badges
-    followed_rules.map(&:badges)&.flatten
+  def handle_badges
+    @badges.each do |badge|
+      @user.badges << badge if send "#{badge.rule.title}_badge?", badge.rule
+    end
   end
 
   private
 
-  def followed_rules
-    rules = []
-    @badge_rules.each { |rule| rules << rule if execute_checks(rule) }
-    rules
+  def attempt_badge?(rule)
+    @user.tests.where(id: @test_passage.test_id).count == rule.attempt && @test_passage.successfully_passed
   end
 
-  def execute_checks(rule)
-    checks = []
-    checks << check_attempt(rule.attempt) if rule.attempt_badge
-    checks << check_category(rule.category.title) if rule.category_badge
-    checks << check_level(rule.level) if rule.level_badge
+  def category_badge?(rule)
+    return false if Test.by_cat_name(rule.title).count.zero?
 
-    checks.include? true
+    Test.by_cat_name(rule.title).count == @user.successfully_tests.by_cat_name(rule.title).count
   end
 
-  def check_attempt(attempt)
-    @user.tests.where(id: @test_passage.test_id).count == attempt && @test_passage.successfully_passed
-  end
+  def level_badge?(rule)
+    return false if Test.where(level: rule.level).count.zero?
 
-  def check_category(title)
-    return false if Test.by_cat_name(title).count.zero?
-
-    Test.by_cat_name(title).count == @user.successfully_tests.by_cat_name(title).count
-  end
-
-  def check_level(level)
-    return false if Test.where(level: level).count.zero?
-
-    @user.successfully_tests.where(level: level).count == Test.where(level: level).count
+    @user.successfully_tests.where(level: rule.level).count == Test.where(level: rule.level).count
   end
 end

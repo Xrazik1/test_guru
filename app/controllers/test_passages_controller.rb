@@ -11,19 +11,14 @@ class TestPassagesController < ApplicationController
       @test_passage.successfully_passed = true
       @test_passage.save
 
-      new_badges = BadgesService.new(@test_passage).look_for_badges
+      new_badges = BadgesService.new(@test_passage).handle_badges
 
-      if new_badges.present?
-        @test_passage.user.badges = @test_passage.user.badges + new_badges
-        flash[:success] = 'У вас появились новые значки'
-      end
+      flash[:success] = 'У вас появились новые значки' if new_badges.present?
     end
   end
 
   def update
-    if @test_passage.passage_time_expired?
-      return redirect_to(result_test_passage_path(@test_passage))
-    end
+    return redirect_to(result_test_passage_path(@test_passage)) if @test_passage.passage_time_expired?
 
     @test_passage.accept!(params[:answer_ids])
 
